@@ -45,7 +45,7 @@ def main():
         print('Blob copy completed in {}ms'.format(copyEndTime - copyStartTime), file=sys.stderr)
 
         # generate SAS token, read only, valid for an hour
-        token = bs.generate_container_shared_access_signature(destContainer, ContainerPermissions.READ, datetime.utcnow() + timedelta(hours=1))
+        token = bs.generate_container_shared_access_signature(destContainer, ContainerPermissions.READ | ContainerPermissions.LIST, datetime.utcnow() + timedelta(hours=1))
 
         # return information
         result = {
